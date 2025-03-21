@@ -1,23 +1,23 @@
 import { test, expect, Page } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPAge';
-import * as dotenv from 'dotenv';
+//import * as dotenv from 'dotenv';
 
-dotenv.config();
+//dotenv.config();
 
 test('Valid Login Test', async ({ page }: { page: Page }) => {
-    const email = process.env.EMAIL;
-    const password = process.env.PASSWORD;
+    // const email = process.env.EMAIL;
+    // const password = process.env.PASSWORD;
 
-    if (!email || !password) {
-        throw new Error('Email or Password is not set in the .env file');
-    }
+    // if (!email || !password) {
+    //     throw new Error('Email or Password is not set in the .env file');
+    // }
 
     const loginPage = new LoginPage(page);
 
     await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login');
 
-     // await loginPage.login('testuser', 'testpassword');
-    await loginPage.login(email, password);
+    await loginPage.login('testuser', 'testpassword');
+    //await loginPage.login(email, password);
     await page.waitForTimeout(2000);
     await expect(page).toHaveURL('https://tutorialsninja.com/demo/index.php?route=account/account');
     await expect(page).toHaveTitle('My Account');
