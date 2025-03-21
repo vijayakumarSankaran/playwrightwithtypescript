@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    environment {
+        // Use the NodeJS tool defined in the Global Tool Configuration
+        NODE_HOME = tool name: 'node-16', type: 'NodeJS'  // 'node-16' should match the name you gave in Global Tool Configuration
+        PATH = "${NODE_HOME}/bin:${env.PATH}"  // Add NodeJS to the PATH
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from your Git repository
+                git 'https://github.com/vijayakumarSankaran/playwrightwithtypescript'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install Node.js dependencies
+                script {
+                    // Install project dependencies from package.json
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Install Playwright Browsers') {
+            steps {
+                // Install required Playwright browsers (Chromium, Firefox, WebKit)
+                script {
+                    // Install Playwright browsers
+                    sh 'npx playwright install'
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run Playwright tests using npx
+                script {
+                    // Running Playwright tests (this assumes Playwright is installed in your package.json)
+                    sh 'npx playwright test'
+                }
+            }
+        }
+
+        stage('Post-Test Cleanup') {
+            steps {
+                echo 'Cleaning up after tests...'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive test results or any other necessary artifacts
+            junit '**/test-results/**/*.xml'  // Assuming you are generating JUnit test reports
+            // You can also archive videos/screenshots if using Playwright's built-in output
+        }
+        success {
+            echo 'Tests passed successfully!'
+        }
+        failure {
+            echo 'Tests failed!'
+        }
+    }
+}
