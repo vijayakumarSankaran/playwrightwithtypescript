@@ -18,8 +18,8 @@ test('Valid Login Test', async ({ page }: { page: Page }) => {
 
     await loginPage.login('testuser', 'testpassword');
     //await loginPage.login(email, password);
-    // await page.waitForTimeout(2000);
-    // await expect(page).toHaveURL('https://tutorialsninja.com/demo/index.php?route=account/account');
-    // await expect(page).toHaveTitle('My Account');
-    // expect(await loginPage.isLoginButtonVisible()).toBe(false); 
+    await page.waitForTimeout(2000);
+    await expect(page).toHaveURL('https://tutorialsninja.com/demo/index.php?route=account/account');
+    await expect(page).toHaveTitle('My Account');
+    expect(await loginPage.isLoginButtonVisible()).toBe(false); 
 });
