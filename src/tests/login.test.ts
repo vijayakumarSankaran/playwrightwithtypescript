@@ -18,6 +18,8 @@ test('Valid Login Test', async ({ page }: { page: Page }) => {
 
     await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login');
     await loginPage.login('Test', 'Test@123');
+    console.log('Login successfully completed...');
+    
    //await loginPage.login(email, password);
 
     // //await loginPage.login(email, password);
