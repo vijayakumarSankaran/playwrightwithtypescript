@@ -21,7 +21,7 @@ test('Valid Login Test', async ({ page }: { page: Page }) => {
    // await loginPage.login('Test', 'Test@123');
    await loginPage.login(email,password);
     await page.waitForTimeout(2000);
-    console.log('Login successfully completed...');
+    console.log('Login successfully...');
     
    //await loginPage.login(email, password);
 
