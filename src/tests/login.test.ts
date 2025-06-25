@@ -1,18 +1,18 @@
 import { test, expect, Page } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPAge';
-//import * as dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
- //dotenv.config();
+ dotenv.config();
 
 test('Valid Login Test', async ({ page }: { page: Page }) => {
-    // const email = process.env.EMAIL;
-    // const password = process.env.PASSWORD;
-    // console.log('email is: ', email);
-    // console.log('password is: ', password);
+    const email = process.env.EMAIL;
+    const password = process.env.PASSWORD;
+    console.log('email is: ', email);
+    console.log('password is: ', password);
 
-    // if (!email || !password) {
-    //     throw new Error('Email or Password is not set in the .env file');
-    // }
+    if (!email || !password) {
+        throw new Error('Email or Password is not set in the .env file');
+    }
 
     const loginPage = new LoginPage(page);
    
