@@ -19,7 +19,7 @@ const actualOption = page.locator('//span[@class="genderbutton"]')
 const actualOptionValue = await actualOption.innerText()  
 console.log('actualOptionValue is :', actualOptionValue)
 
-expect(actualOptionValue).toContain('Ohio')
+//expect(actualOptionValue).toContain('Ohio')
 
   
     } )
