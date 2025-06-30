@@ -1,7 +1,7 @@
 import test, { Page } from "playwright/test";
 
 
-test('Lauching google aplication', async ({ page }: { page: Page }) => {
+test.only('Lauching google aplication', async ({ page }: { page: Page }) => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     await page.locator('[name="username"]').fill("Admin")
     await page.locator('[name="password"]').fill("admin123")
@@ -16,6 +16,7 @@ test('Lauching google aplication', async ({ page }: { page: Page }) => {
     await page.locator('div').filter({ hasText: /^2023$/ }).click();
     await page.getByText('2025', { exact: true }).click();
     await page.getByText('20', { exact: true }).click();
-
+    console.log('welcome on board.....');
+    
 })
 
