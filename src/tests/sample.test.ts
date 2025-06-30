@@ -16,6 +16,7 @@ test.only('Lauching google aplication', async ({ page }: { page: Page }) => {
     await page.locator('div').filter({ hasText: /^2023$/ }).click();
     await page.getByText('2025', { exact: true }).click();
     await page.getByText('20', { exact: true }).click();
-
+    console.log('welcome on board.....');
+    
 })
 
