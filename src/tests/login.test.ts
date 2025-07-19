@@ -1,40 +1,36 @@
-import { test, expect, Page } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPAge';
-import * as dotenv from 'dotenv';
+import { test, expect } from '@playwright/test';
+import * as dotenv from 'dotenv' 
+dotenv.config();
 
- dotenv.config();
+test.only('launch google', async ({ page }) => {
+    await page.goto('https://tutorialsninja.com/demo/index.php?route=account/register')
 
-test('Valid Login Test', async ({ page }: { page: Page }) => {
-    const email = process.env.EMAIL;
-    const password = process.env.PASSWORD;
-    console.log('email is: ', email);
-    console.log('password is: ', password);
+        const password =process.env.password;
+const confirmpassword=process.env.confirmpassword;
+console.log(password);
+console.log(confirmpassword);
 
-    if (!email || !password) {
+  if (!password || !confirmpassword) {
         throw new Error('Email or Password is not set in the .env file');
     }
 
-    const loginPage = new LoginPage(page);
-   
-    // WebDriver driver = new ChromeDriver();
-    // driver.get("https://tutorialsninja.com/demo/index.php?route=account/login")
+// await page.locator("(//input[@type='text'])[2]").fill('TestFirstname')
+// await page.locator("(//input[@type='text'])[3]").fill('Lastname')
+// await page.locator("//input[@type='email']").fill('test@gmail.com')
+// await page.locator("(//input[@type='tel'])").fill('9000000000')
+ await page.locator("(//input[@type='password'])[1]").fill(password)
+ await page.locator("(//input[@type='password'])[2]").fill(confirmpassword)
+// await page.locator("(//input[@type='radio'])[3]").click();
+// await page.locator("(//input[@type='checkbox'])").click();
 
-    await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login');
-    await loginPage.login('Test', 'Test@123');
-   //await loginPage.login(email,password);
-    await page.waitForTimeout(2000);
-    console.log('Login successfully...');
-    
-   //await loginPage.login(email, password);
-
-    // //await loginPage.login(email, password);
-//       await page.waitForTimeout(2000);
-//     await expect(page).toHaveURL('https://tutorialsninja.com/demo/index.php?route=account/account');
-//    await expect(page).toHaveTitle('My Account');
-//   expect(await loginPage.isLoginButtonVisible()).toBe(false); 
-
-
-});
+await page.waitForTimeout(5000)
+//await page.locator("(//input[@type='submit'])").click();
+const timestamp=Date.now()
+await page.screenshot ({path: `screenshots/RegisterPage1-${timestamp}.png`})
 
 
 
+
+//const timestamp=Date.now()
+   //await page.screenshot ({path: `screenshots/page-${timestamp}.png`})
+})
