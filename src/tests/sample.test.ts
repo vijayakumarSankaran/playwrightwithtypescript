@@ -1,6 +1,5 @@
 import test, { Page } from "playwright/test";
 
-
 test.only('Lauching google aplication', async ({ page }: { page: Page }) => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     await page.locator('[name="username"]').fill("Admin")
