@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
+import {LoginPage} from '../pages/LoginPAge'
 import * as dotenv from 'dotenv' 
 dotenv.config();
 
 test.only('launch google', async ({ page }) => {
     await page.goto('https://tutorialsninja.com/demo/index.php?route=account/register')
-
-        const password =process.env.password;
+const password =process.env.password;
 const confirmpassword=process.env.confirmpassword;
 console.log(password);
 console.log(confirmpassword);
@@ -18,6 +18,12 @@ console.log(confirmpassword);
 // await page.locator("(//input[@type='text'])[3]").fill('Lastname')
 // await page.locator("//input[@type='email']").fill('test@gmail.com')
 // await page.locator("(//input[@type='tel'])").fill('9000000000')
+
+
+    // const obj = new LoginPage(page);
+    // await obj.login('abc43@gmail.com','Test@123')
+
+
  await page.locator("(//input[@type='password'])[1]").fill(password)
  await page.locator("(//input[@type='password'])[2]").fill(confirmpassword)
 // await page.locator("(//input[@type='radio'])[3]").click();
