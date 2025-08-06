@@ -4,15 +4,15 @@ import * as dotenv from 'dotenv'
 dotenv.config();
 
 test.only('launch google', async ({ page }) => {
-    await page.goto('https://tutorialsninja.com/demo/index.php?route=account/register')
-const password =process.env.password;
-const confirmpassword=process.env.confirmpassword;
-console.log(password);
-console.log(confirmpassword);
+    await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login')
+// const password =process.env.password;
+// const confirmpassword=process.env.confirmpassword;
+// console.log(password);
+// console.log(confirmpassword);
 
-  if (!password || !confirmpassword) {
-        throw new Error('Email or Password is not set in the .env file');
-    }
+//   if (!password || !confirmpassword) {
+//         throw new Error('Email or Password is not set in the .env file');
+//     }
 
 // await page.locator("(//input[@type='text'])[2]").fill('TestFirstname')
 // await page.locator("(//input[@type='text'])[3]").fill('Lastname')
@@ -20,12 +20,12 @@ console.log(confirmpassword);
 // await page.locator("(//input[@type='tel'])").fill('9000000000')
 
 
-    // const obj = new LoginPage(page);
-    // await obj.login('abc43@gmail.com','Test@123')
+    const obj = new LoginPage(page);
+    await obj.login('abc43@gmail.com','Test@123')
 
 
- await page.locator("(//input[@type='password'])[1]").fill(password)
- await page.locator("(//input[@type='password'])[2]").fill(confirmpassword)
+//  await page.locator("(//input[@type='password'])[1]").fill(password)
+//  await page.locator("(//input[@type='password'])[2]").fill(confirmpassword)
 // await page.locator("(//input[@type='radio'])[3]").click();
 // await page.locator("(//input[@type='checkbox'])").click();
 
