@@ -33,4 +33,5 @@ export class LoginPage {
   async isLoginButtonVisible(): Promise<boolean> {
     return await this.page.isVisible(this.loginButton);
   }
+   
 }

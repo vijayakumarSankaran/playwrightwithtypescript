@@ -1,0 +1,7 @@
+    {
+      "compilerOptions": {
+        "allowJs": true,
+        // other compiler options...
+      },
+      // other tsconfig options...
+    }

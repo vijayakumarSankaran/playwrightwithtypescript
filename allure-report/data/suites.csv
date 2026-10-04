@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","6295","launch google","","Wed Aug 06 16:50:07 IST 2025","passed","Wed Aug 06 16:50:13 IST 2025","","src\tests\login.test.ts","",""

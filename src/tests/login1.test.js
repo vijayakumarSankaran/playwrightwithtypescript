@@ -8,7 +8,8 @@ test('Login test with Page Object Model', async ({ page }) => {
   await loginPage.goto();
   await loginPage.login('abc43@gmail.com','Test@123');
 
-
+  a = 10
+     console.log(a);
 });
 
 

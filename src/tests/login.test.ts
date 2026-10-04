@@ -3,21 +3,28 @@ import { LoginPage } from '../pages/LoginPAge'
 import * as dotenv from 'dotenv'
 dotenv.config();
 
-test.only('launch google', async ({ page }) => {
+test.only('Login functionality', async ({ page }) => {
     await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login')
     const obj = new LoginPage(page);
    // click - My Account
     await obj.login('abc43@gmail.com', 'Test@123')
     console.log('login success');
-    
+    //  var a = 10
+    //  console.log(a);
+     
     //await page.waitForTimeout(2000)
     const timestamp = Date.now()
     await page.screenshot({ path: `screenshots/RegisterPage1-${timestamp}.png` })
 
-    // const password =process.env.password;
-    // const confirmpassword=process.env.confirmpassword;
-    // console.log(password);
-    // console.log(confirmpassword);
+    const password =process.env.password;
+    const confirmpassword=process.env.confirmpassword;
+    const email=process.env.EMAIL;
+    console.log(email);
+    
+    console.log(password);
+    console.log(confirmpassword);
+    console.log('donne');
+    
 
     //   if (!password || !confirmpassword) {
     //         throw new Error('Email or Password is not set in the .env file');
