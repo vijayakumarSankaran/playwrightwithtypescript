@@ -7,7 +7,7 @@ test.only('Login functionality', async ({ page }) => {
     await page.goto('https://tutorialsninja.com/demo/index.php?route=account/login')
     const obj = new LoginPage(page);
    // click - My Account
-    await obj.login('abc43@gmail.com', 'Test@123')
+    await obj.login('abc43@gmail.com', 'Test@12')
     console.log('login success');
     //  var a = 10
     //  console.log(a);
